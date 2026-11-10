@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "author": "Embedded Firmware Project",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -81.7, "left": 52.6, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht", "top": -105.3, "left": 205.8, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led_status",
+      "top": 140.4,
+      "left": 215,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "dht:GND", "esp:GND.1", "black", [ "v57.6" ] ],
+    [ "led_status:C", "esp:GND.2", "black", [ "v0", "h-191.6", "v-115.2" ] ],
+    [ "led_status:A", "esp:D2", "green", [ "v0", "h48", "v-134.4" ] ],
+    [ "dht:VCC", "esp:3V3", "red", [ "v67.2" ] ],
+    [ "dht:SDA", "esp:D23", "limegreen", [ "v0", "h-57.5", "v-67.2" ] ]
+  ],
+  "dependencies": {}
+}
